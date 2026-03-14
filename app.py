@@ -35,7 +35,7 @@ def main():
     st.header('Enter star details to classify the star:')
     
     # Only collect the 3 selected features
-    rad = st.slider('Radius (R/Ro)', min_value=0.0, max_value=2000.0, step=0.1)
+    rad = st.slider('Radius (R/Ro)', min_value=0.01, max_value=2000.0, step=0.1)
     mag = st.slider('Absolute magnitude (Mv)', min_value=-12.0, max_value=21.0, step=0.1)
     lum = st.slider('Luminosity (L/Lo)', min_value=0.0, max_value=850000.0, step=100.0)
 
