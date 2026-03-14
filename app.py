@@ -66,11 +66,21 @@ def main():
             input_data[spectral_col] = 1
             
         # 5. Convert to DataFrame and predict
-       
         df_input = pd.DataFrame([input_data])
-        prediction = model.predict(df_input)
-        
-        st.success(f"Predicted Star Type: {prediction[0]}")
+        prediction = model.predict(df_input)[0]
 
+        # Map prediction number to proper text
+        star_types = {
+            0: 'Red Dwarf',
+            1: 'Brown Dwarf',
+            2: 'White Dwarf',
+            3: 'Main Sequence',
+            4: 'SuperGiants',
+            5: 'HyperGiants'
+        }
+        
+        predicted_type = star_types.get(prediction, f"Unknown ({prediction})")
+        
+        st.success(f"Predicted Star Type: **{predicted_type}**")
 if __name__ == '__main__':
     main()
